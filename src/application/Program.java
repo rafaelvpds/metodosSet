@@ -1,34 +1,28 @@
 package application;
 
-import java.util.LinkedHashSet;
+import java.util.Arrays;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Program {
-
 	public static void main(String[] args) {
-		Set<String> set = new LinkedHashSet<>();
-		// LinkedHashSet a ordem conforme os elementos foram inseridos
-		set.add("Tv");
-		set.add("Notebook");
-		set.add("Tablet");
+		Set<Integer> a = new TreeSet<>(Arrays.asList(3, 0, 2, 4, 5, 6, 8, 10));
+		Set<Integer> b = new TreeSet<>(Arrays.asList(1, 5, 6, 7, 8, 9, 10));
+//union
+		Set<Integer> c = new TreeSet<>(a);
+		// uniao de c com b
+		c.addAll(b);
+		System.out.println(c);
+//intersection
+//apenas os elementos em comum entre os conjuntos
+		Set<Integer> d = new TreeSet<>(a);
+		d.retainAll(b);
+		System.out.println(d);
+		// difference
+		// remove do conjunto "e" todos ques estão no conjunto "b"
+		Set<Integer> e = new TreeSet<>(a);
+		e.removeAll(b);
+		System.out.println(e);
 
-		System.out.println("Se contem elementos: " + set.contains("Notebook"));
-
-		System.out.println("Removendo um elemento da lista");
-
-		set.remove("Tablet");
-		System.out.println();
-
-		System.out.println("Removendo um elemento satisfazendo uma condição ");
-		set.removeIf(elem -> elem.length() >= 3);
-
-		set.removeIf(elem -> elem.charAt(0) == 'T');
-
-		System.out.println();
-		System.out.println("Pegando todos os elementos do conjunto");
-		for (String p : set) {
-			System.out.println(p);
-		}
 	}
-
 }
