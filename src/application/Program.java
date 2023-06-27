@@ -1,16 +1,16 @@
 package application;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class Program {
 
 	public static void main(String[] args) {
-		Set<String> set = new TreeSet<>();
-		// TreeSet mantem os dados ordenados
+		Set<String> set = new LinkedHashSet<>();
+		// LinkedHashSet a ordem conforme os elementos foram inseridos
 		set.add("Tv");
-		set.add("Tablet");
 		set.add("Notebook");
+		set.add("Tablet");
 
 		System.out.println("Se contem elementos: " + set.contains("Notebook"));
 
